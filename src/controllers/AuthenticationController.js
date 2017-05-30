@@ -3,39 +3,47 @@ import bcrypt from "bcrypt-nodejs";
 import jwt from "jwt-simple";
 
 export function signIn(req, res) {
+  
+  console.log("logged in now");
   res.json({ token: tokenForUser(req.user)});
 }
 export function signUp(req, res, next) {
   const { username, password } = req.body;
+  let u = username;
   // If no username or password was supplied return an error
   if (!username || !password) {
     return res.status(422)
       .json({ error: "You must provide an username and password" });
   }
-  // Look for a user with the current user name
-  User.findOne({ username }).exec()
+  console.log("Look for a user with the username");
+  User.findOne({ username:u}).exec()
   .then((existingUser) => {
     // If the user exist return an error on sign up
     if (existingUser) {
+      console.log("This username is already being used");
       return res.status(422).json({ error: "Username is in use" });
     }
-    savePassword(username,password,res,next);
+    console.log("This username is free to use");
+    saveUser(username,password,res,next);
   })
   .catch(err => next(err));
 }
-function savePassword(username,password,res,next) {
-  // If the user does not exist create the user
+function saveUser(username,password,res,next) {
   // User bcrypt to has their password, remember, we never save plain text passwords!
-  bcrypt.genSalt(10, function (salt) {
+  bcrypt.genSalt(10, function (err, salt) {
+    console.log("the salt",salt);
     bcrypt.hash(password, salt, null, function (err, hashedPassword) {
       if (err) {
         return next(err);
       }
       // Create a new user with the supplied username, and the hashed password
       const user = new User({ username, password: hashedPassword });
-      // Save and return the user
+      console.log("Saving the user");
       user.save()
-         .then(u => res.json({ token: tokenForUser(u) }));
+         .then(u => {
+           console.log("User has been saved to database");
+           res.json({ token: tokenForUser(u) });
+         });
     });
   });
 }

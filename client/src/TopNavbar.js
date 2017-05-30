@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { Link } from 'react-router';
+import React from "react";
+import PropTypes from "prop-types";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const TopNavbar = (props) => {
   return (
     <Navbar inverse collapseOnSelect>
- 
       <Navbar.Collapse>
         <Nav pullRight>
           <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
@@ -16,7 +16,7 @@ const TopNavbar = (props) => {
       </Navbar.Collapse>
     </Navbar>
   );
-}
+};
 
 TopNavbar.propTypes = {
   onSignOut: PropTypes.func.isRequired,

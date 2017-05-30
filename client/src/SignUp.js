@@ -1,34 +1,25 @@
-import React, { Component, PropTypes } from 'react';
-import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 
 class SignUp extends Component {
   constructor() {
     super();
 
     this.state = {
-      username: '',
-      password: '',
-      confirmPassword: '',
-    }
+      username: "",
+      password: "",
+      confirmPassword: "",
+    };
   }
 
   handleSubmit(event) {
     event.preventDefault();
-
     this.props.onSignUp({
       username: this.state.username,
       password: this.state.password,
       confirmPassword: this.state.confirmPassword
     });
-  }
-
-  handleChange(event) {
-    const { name, value } = event.target;
-
-    this.setState(prev => ({
-      ...prev,
-      [name]: value
-    }));
   }
 
   render() {
@@ -39,7 +30,9 @@ class SignUp extends Component {
           <FormControl
             type="email"
             name="username"
-            onChange={event => this.handleChange(event)}
+            onChange={e => {
+              this.setState({[e.target.name]: e.target.value});
+            }}
             placeholder="Enter Username"
             value={this.state.username}
           />
@@ -50,7 +43,9 @@ class SignUp extends Component {
           <FormControl
             type="password"
             name="password"
-            onChange={event => this.handleChange(event)}
+            onChange={e => {
+              this.setState({[e.target.name]: e.target.value});
+            }}
             placeholder="Enter Password"
             value={this.state.password}
           />
@@ -61,7 +56,9 @@ class SignUp extends Component {
           <FormControl
             type="password"
             name="confirmPassword"
-            onChange={event => this.handleChange(event)}
+            onChange={e => {
+              this.setState({[e.target.name]: e.target.value});
+            }}
             placeholder="Confirm Password"
             value={this.state.confirmPassword}
           />

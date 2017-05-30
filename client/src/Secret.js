@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
 
 class Secret extends Component {
   constructor() {
     super();
 
     this.state = {
-      message: ''
+      message: ""
     };
   }
 
   componentDidMount() {
-    axios.get('/api/secret', {
-      headers: {
-        authorization: localStorage.getItem('token')
-      }
-    })
-      .then(resp => {
-        this.setState({
-          ...this.state,
-          message: resp.data
-        });
-      })
-      .catch(err => console.log(err));
+    fetch("/api/secret").then((res) => {
+      return res.text();
+    }).then((data) => {
+      this.setState({
+        message: data
+      });
+    });
   }
 
   render() {

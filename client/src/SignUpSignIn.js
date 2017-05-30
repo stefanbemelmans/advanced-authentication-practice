@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import { Tabs, Tab, Row, Col, Alert } from 'react-bootstrap';
-import SignUp from './SignUp';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { Tabs, Tab, Row, Col, Alert } from "react-bootstrap";
+import SignUp from "./SignUp";
 
 class SignUpSignIn extends Component {
 
@@ -19,7 +20,7 @@ class SignUpSignIn extends Component {
           {this.props.error && this.renderError()}
           <Tabs defaultActiveKey={1} id="signup-signin-tabs">
             <Tab eventKey={1} title="Sign Up">
-              <SignUp onSignUp={this.props.onSignUp}/>
+              <SignUp onSignUp={this.props.onSignUp} />
             </Tab>
             <Tab eventKey={2} title="Sign In">
               Sign In

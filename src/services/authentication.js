@@ -3,7 +3,6 @@ import {
   Strategy as JwtStrategy,
   ExtractJwt
 } from "passport-jwt";
-import "./signin";
 
 // Setup options for JwtStrategy
 const jwtOptions = {
