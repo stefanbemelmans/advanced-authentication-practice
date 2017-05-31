@@ -4,7 +4,7 @@ Authentication Practice
 * Make sure you are running mongoDB or using Mlab
 * Make sure you have a database called “authentication-practice”
 
-#Client
+# Client
 
 ### Sign In
 * Create a component called SignIn
