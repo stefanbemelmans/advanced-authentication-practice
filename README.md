@@ -43,7 +43,7 @@ Authentication Practice
     * Use this property to determine whether to show the Nav Items, only show the secured routes if showNavItems === true
     * The sign out should always be shown
 
-### Server
+# Server
 * Create 3 secure routes on the server
 * It doesn’t matter what they return
 * If the request is not authenticated then the route should not be executed at it should return unauthorized.
