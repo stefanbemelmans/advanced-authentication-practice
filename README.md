@@ -49,10 +49,10 @@ Authentication Practice
 * If the request is not authenticated then the route should not be executed at it should return unauthorized.
 * Make a fetch get request to these routes in the secure components
 
-Extra Credit
+# Extra Credit
 * Implement the popular feature of telling the user if a username is available as soon as they type it in
 
-Points
+# Points
 * Sign In works - 25pts
 * Confirm password works - 25pts
 * Existing username error works - 25pts
