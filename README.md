@@ -1,6 +1,7 @@
-Authentication Practice
+# Setup
+* Fork, clone, yarn install, yarn start
 
-### Database
+# Database
 * Make sure you are running mongoDB or using Mlab
 * Make sure you have a database called “authentication-practice”
 
