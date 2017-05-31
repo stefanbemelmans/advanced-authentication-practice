@@ -1,3 +1,50 @@
-# Final Project Starter
+### Database
+* Make sure you are running mongoDB or using Mlab
+* Make sure you have a database called “authentication-practice”
 
-A starter repository for the Final Project.
+#Client
+
+### Sign In
+* Create a component called SignIn
+* Use SignUp as an example
+* Need to do a fetch post to /signin 
+* It doesn’t need the confirm text box
+* It needs a prop called signing that is a function
+* in App.js, assign the handleSignIn function to the onSignIn prop of SignUpSignIn component
+* In SignUpSignIn.js assign the onSignIn prop of SignIn , (do the same things as onSignUp)
+* Use the SignIn component in the SignUpSignIn component
+* Implement handleSignIn in App.js
+* Code will probably be very similar to handleSignUp
+
+### Secured Components
+* Create 3 class components it doesn’t matter what they are 
+* componentDidMount should use fetch to make a GET request to a secured path that you create
+* In App.js renderApp, add routes for them these components
+
+### App
+* Fix App.js handleSignUp
+    * It is common practice to make sure you know what password you are typing in by having the user type it in twice and ensure they typed the same thing each time
+    * It is not checking whether password and confirm password are the same. Implement this logic and show an error message.
+    * The promise callback function is not handling the error of if you sign up with a  username that already exists
+    * Check whether an error message was returned from the server and show it.
+
+### TopNavbar.js
+* Add 3 more Links for the secured components routes
+* The component is not using the property showNavItems
+    * Use this property to determine whether to show the Nav Items, only show the secured routes if showNavItems === true
+    * The sign out should always be shown
+
+# Server
+* Create 3 secure routes on the server
+* It doesn’t matter what they return
+* If the request is not authenticated then the route should not be executed.
+
+# Extra Credit
+* Implement the common feature of telling the user whether a username is available as soon as they type it in
+
+# Points
+* Sign In works - 25pts
+* Confirm password works - 25pts
+* Existing username error works - 25pts
+* Secure components - 25pts
+* Secure routes - 25pts

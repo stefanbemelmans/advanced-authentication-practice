@@ -34,7 +34,8 @@ class SignUpSignIn extends Component {
 
 SignUpSignIn.propTypes = {
   error: PropTypes.string,
-  onSignUp: PropTypes.func.isRequired
+  onSignUp: PropTypes.func.isRequired,
+  onSignIn: PropTypes.func.isRequired
 };
 
 export default SignUpSignIn;
