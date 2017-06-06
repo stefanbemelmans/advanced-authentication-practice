@@ -18,6 +18,7 @@ app.use(authenticationRoutes);
 
 app.use(function authChecker(req, res, next) {
   // implement some logic to determine if you should allow this request
+  // pull the token from the request and see if its valid
   if (true) {
       next();
   } else {
