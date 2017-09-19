@@ -76,4 +76,5 @@ SignIn.propTypes = {
   onSignIn: PropTypes.func.isRequired
 };
 
-export default SignUp;
+export default SignIn;
+

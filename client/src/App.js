@@ -73,7 +73,7 @@ class App extends Component {
       });
     }
   }
-  }
+  
 
   handleSignOut() {
     localStorage.removeItem("token");

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Tabs, Tab, Row, Col, Alert } from "react-bootstrap";
 import SignUp from "./SignUp";
-
+import SignIn from "./SignIn";
 class SignUpSignIn extends Component {
 
   renderError() {
@@ -23,7 +23,7 @@ class SignUpSignIn extends Component {
               <SignUp onSignUp={this.props.onSignUp} />
             </Tab>
             <Tab eventKey={2} title="Sign In">
-              Sign In
+              <SignIn onSignIn={this.props.onSignIn} />
             </Tab>
           </Tabs>
         </Col>
