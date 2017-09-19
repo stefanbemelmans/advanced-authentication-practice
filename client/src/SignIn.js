@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { FormGroup, ControlLabel, FormControl, Button } from "react-bootstrap";
 
-class SignUp extends Component {
+class SignIn extends Component {
   constructor() {
     super();
 
