@@ -27,12 +27,20 @@ class App extends Component {
         signUpSignInError: "Must Provide All Fields"
       });
     } else {
+      if (password !== confirmPassword) {
+        this.setState({
+          signUpSignInError: "Passwords Must Match"
+        });
+      }
 
       fetch("/api/signup", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(credentials)
       }).then((res) => {
+        if(res.status===422) {
+          console.log("UserName is Taken Already")
+        }
         return res.json();
       }).then((data) => {
         const { token } = data;
