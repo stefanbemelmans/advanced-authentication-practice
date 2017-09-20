@@ -4,6 +4,9 @@ import "./App.css";
 import SignUpSignIn from "./SignUpSignIn";
 import TopNavbar from "./TopNavbar";
 import Secret from "./Secret";
+import SecuredClassOne from "./SecuredClassOne";
+import SecuredClassTwo from "./SecuredClassTwo";
+import SecuredClassThree from "./SecuredClassThree";
 
 class App extends Component {
   constructor() {
@@ -56,12 +59,12 @@ class App extends Component {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(credentials)
       }).then((res) => {
-        if(res.status === 401) {
-        this.setState({
-          signUpSignInError: "Invalid Login"
-        }); 
-      }else{
-        return res.json();
+        if (res.status === 401) {
+          this.setState({
+            signUpSignInError: "Invalid Login"
+          }); 
+      } else {
+          return res.json();
       }
       }).then((data) => {
         const { token } = data;
@@ -99,6 +102,9 @@ class App extends Component {
           <Route exact path="/" render={() => <h1>I am protected!</h1>} />
           <Route exact path="/secret" component={Secret} />
           <Route render={() => <h1>NOT FOUND!</h1>} />
+          <Route exact path="SecuredClassOne" component={SecuredClassOne} />
+          <Route exact path="SecuredClassTwo" component={SecuredClassTwo} />
+          <Route exact path="SecuredClassThree" component={SecuredClassThree} />
         </Switch>
       </div>
     );
