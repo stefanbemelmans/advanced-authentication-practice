@@ -38,7 +38,7 @@ class App extends Component {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(credentials)
       }).then((res) => {
-        if(res.status===422) {
+        if (res.status === 422) {
           console.log("UserName is Taken Already")
         }
         return res.json();
